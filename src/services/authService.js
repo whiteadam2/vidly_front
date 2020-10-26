@@ -1,5 +1,4 @@
 import http from "./httpService";
-import { apiUrl } from "../config.json";
 import jwtDecode from "jwt-decode";
 
 const token = "token";
@@ -7,7 +6,7 @@ const token = "token";
 http.setJwt(localStorage.getItem(token));
 
 export async function login(email, password) {
-  const { data: jwt } = await http.post(apiUrl + "/auth", {
+  const { data: jwt } = await http.post("/auth", {
     email,
     password,
   });
